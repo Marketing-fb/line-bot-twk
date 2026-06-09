@@ -26,14 +26,7 @@ import requests
 from datetime import datetime, timedelta
 
 os.environ["FLASK_SKIP_DOTENV"] = "1"
-app = Flask(__name__)
-
-# Route to serve static files from the root directory
-@app.route('/static/<path:filename>')
-def serve_static(filename):
-    from flask import send_from_directory
-    return send_from_directory('.', filename)
-
+app = Flask(__name__, static_folder='.')
 user_states = {}
 
 CHANNEL_ACCESS_TOKEN_1 = "4eAH59oxrR3UUYIYGQE/1ihGOouS/IbhDIJkbUOJ9C/VBM1UjOhd++hWVBE0lVqN/wq39d6XYdmbdR3lVF3/4zhw0Kr3WSfkSW4fSbK5YbfLHyg+tnrJmab3sGvDIfNMXd6q8A86v/KDmeKz5O95hgdB04t89/1O/w1cDnyilFU="
