@@ -26,7 +26,7 @@ import requests
 from datetime import datetime, timedelta
 
 os.environ["FLASK_SKIP_DOTENV"] = "1"
-app = Flask(__name__, static_folder='.', static_url_path='/static')
+app = Flask(__name__)
 user_states = {}
 
 CHANNEL_ACCESS_TOKEN_1 = "4eAH59oxrR3UUYIYGQE/1ihGOouS/IbhDIJkbUOJ9C/VBM1UjOhd++hWVBE0lVqN/wq39d6XYdmbdR3lVF3/4zhw0Kr3WSfkSW4fSbK5YbfLHyg+tnrJmab3sGvDIfNMXd6q8A86v/KDmeKz5O95hgdB04t89/1O/w1cDnyilFU="
@@ -115,14 +115,14 @@ def process_message(event, config, script_url):
 @handler_1.add(MessageEvent, message=TextMessageContent)
 def handle_message_1(event):
     if process_message(event, configuration_1, SCRIPT_URL_1): return
-    handle_common_menu(event, configuration_1)
+    handle_common_menu(event, configuration_1, "old")
 
 @handler_2.add(MessageEvent, message=TextMessageContent)
 def handle_message_2(event):
     if process_message(event, configuration_2, SCRIPT_URL_2): return
-    handle_common_menu(event, configuration_2)
+    handle_common_menu(event, configuration_2, "new")
 
-def handle_common_menu(event, configuration):
+def handle_common_menu(event, configuration, account_type="new"):
     text = event.message.text
         
     if text == "แจ้ง Tracking":
@@ -141,7 +141,7 @@ def handle_common_menu(event, configuration):
         
         bubbles = []
         for i in range(1, 6):
-            img_url = f"{host_url}static/rule{i}.jpg"
+            img_url = f"{host_url}static/rule{i}_{account_type}.jpg"
             bubbles.append(
                 FlexBubble(
                     body=FlexBox(
@@ -176,7 +176,7 @@ def handle_common_menu(event, configuration):
         
         bubbles = []
         for i in range(1, 3):
-            img_url = f"{host_url}static/price{i}.jpg"
+            img_url = f"{host_url}static/price{i}_{account_type}.jpg"
             bubbles.append(
                 FlexBubble(
                     body=FlexBox(
