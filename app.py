@@ -26,12 +26,12 @@ import requests
 from datetime import datetime, timedelta
 
 os.environ["FLASK_SKIP_DOTENV"] = "1"
-app = Flask(__name__, static_folder='.')
+app = Flask(__name__, static_folder='.', static_url_path='/static')
 user_states = {}
 
 CHANNEL_ACCESS_TOKEN_1 = "4eAH59oxrR3UUYIYGQE/1ihGOouS/IbhDIJkbUOJ9C/VBM1UjOhd++hWVBE0lVqN/wq39d6XYdmbdR3lVF3/4zhw0Kr3WSfkSW4fSbK5YbfLHyg+tnrJmab3sGvDIfNMXd6q8A86v/KDmeKz5O95hgdB04t89/1O/w1cDnyilFU="
 CHANNEL_SECRET_1 = "f3eebeda19446c4e7287d54d1b6f1ef6"
-SCRIPT_URL_1 = "https://script.google.com/macros/s/AKfycbwyqKOxwIu9kA4xXsJ-lf1qm3DJl2wrXaZ_JMO1h8knelEEb03NInfpqK5yIbN3C0Qq/exec"
+SCRIPT_URL_1 = "https://script.google.com/macros/s/AKfycbxuFIUFZ8LBbcdz9-fGSOeY9kD1qVxLhVTvxy1DKeOjeOh5mV1CD5Bt0PqXKSc4p10T/exec"
 
 CHANNEL_ACCESS_TOKEN_2 = "MlnDvQQGSC2nZ1znCwZUlyzxLq+WmLGM/aPRYDGFk8K9g0WbniDGTzsjVdyOODt8H5sg4wACyTFd9sjAc8y2d0Hc+DZCwqGz3ntxqb9GXmudBWSOJJLRYGuLsaq41lMu84XbmV74OYqcl0RnwwCs6AdB04t89/1O/w1cDnyilFU="
 CHANNEL_SECRET_2 = "817aaffc5346eacdfdb06f390ef9372b"
