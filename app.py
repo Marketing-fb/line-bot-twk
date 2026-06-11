@@ -219,6 +219,41 @@ def handle_common_menu(event, configuration, account_type="new"):
                     messages=[flex_message]
                 )
             )
+
+    elif text == "ตารางเรือ / แอร์":
+        host_url = request.host_url.replace("http://", "https://")
+        
+        bubbles = []
+        for i in range(1, 3):
+            img_url = f"{host_url}static/schedule{i}.jpg"
+            bubbles.append(
+                FlexBubble(
+                    body=FlexBox(
+                        layout='vertical',
+                        paddingAll='0px',
+                        contents=[
+                            FlexImage(
+                                url=img_url,
+                                size='full',
+                                aspectMode='cover',
+                                aspectRatio='1:1'
+                            )
+                        ]
+                    )
+                )
+            )
+            
+        carousel = FlexCarousel(contents=bubbles)
+        flex_message = FlexMessage(alt_text="สไลด์ตารางเรือ/แอร์", contents=carousel)
+            
+        with ApiClient(configuration) as api_client:
+            line_bot_api = MessagingApi(api_client)
+            line_bot_api.reply_message_with_http_info(
+                ReplyMessageRequest(
+                    reply_token=event.reply_token,
+                    messages=[flex_message]
+                )
+            )
             
 
     elif text == "ติดต่อแอดมิน":
