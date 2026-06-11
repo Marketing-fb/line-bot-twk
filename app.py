@@ -190,8 +190,8 @@ def handle_common_menu(event, configuration, account_type="new"):
                             FlexImage(
                                 url=img_url,
                                 size='full',
-                                aspectMode='cover',
-                                aspectRatio='1:1'
+                                aspectMode='fit',
+                                aspectRatio='3:4'
                             )
                         ]
                     ),
