@@ -140,8 +140,10 @@ def handle_common_menu(event, configuration, account_type="new"):
         host_url = request.host_url.replace("http://", "https://")
         
         bubbles = []
+        import time
+        v = int(time.time())
         for i in range(1, 6):
-            img_url = f"{host_url}static/rule{i}_{account_type}.jpg"
+            img_url = f"{host_url}static/rule{i}_{account_type}.jpg?v={v}"
             bubbles.append(
                 FlexBubble(
                     body=FlexBox(
@@ -175,8 +177,10 @@ def handle_common_menu(event, configuration, account_type="new"):
         host_url = request.host_url.replace("http://", "https://")
         
         bubbles = []
+        import time
+        v = int(time.time())
         for i in range(1, 3):
-            img_url = f"{host_url}static/price{i}_{account_type}.jpg"
+            img_url = f"{host_url}static/price{i}_{account_type}.jpg?v={v}"
             bubbles.append(
                 FlexBubble(
                     body=FlexBox(
@@ -224,8 +228,10 @@ def handle_common_menu(event, configuration, account_type="new"):
         host_url = request.host_url.replace("http://", "https://")
         
         bubbles = []
+        import time
+        v = int(time.time())
         for i in range(1, 3):
-            img_url = f"{host_url}static/schedule{i}.jpg"
+            img_url = f"{host_url}static/schedule{i}_{account_type}.jpg?v={v}"
             bubbles.append(
                 FlexBubble(
                     body=FlexBox(
